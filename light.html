@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light</title>
+    <style>
+        *{
+            background-color:black;
+            text-align:center;
+            color:white;
+        }
+        #container{
+            display:flex;
+        }
+        #rbDiv,#sosDiv,#indicatorDiv{
+            width:30%;
+            height:50px;
+            margin: 50px auto;
+        }
+        #red-blue, #sos,#indicator{
+            border:2px solid rgb(149, 146, 146);
+            width:30px;
+            height:30px;
+            margin: 0 auto;
+        }
+        h1{
+            color:gray;
+        }
+        span>span{
+            color:#a6a6a6;
+        }
+        footer{
+
+        }
+        footer>p{
+            color: #8c8c8c;
+        }
+        a{
+            
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h">Hi</h1>
+    <div id="container">
+        <div id="rbDiv"><div id="red-blue"></div></div>
+        <div id="sosDiv"><div id="sos"></div></div>
+        <div id="indicatorDiv"><div id="indicator"></div></div>
+    </div>
+
+    <span id="topp">
+        <span>
+            1. Red-Blue (By clicking every time on the first square you can change the color)<br>
+            2. SOS (By clicking every time on the second square you can change the color)<br>
+            3. Indicator (Yellow) (By clicking every time on the first square you can change the color)<br>
+            At First click one square. Then everything without that square will be removen. After that you have to click the close side of the square frequently or click again and again to do that!
+        </span>
+    </span>
+
+    <footer id="bottomp">
+        <p>Refresh to get other options again!</p>
+        <a href="wLight.html">Get White</a>
+        <p>--by Moloy</p>
+    </footer>
+</body>
+<script>
+    let rb=document.getElementById('red-blue');
+    let rbDiv=document.getElementById('rbDiv');
+    let sos=document.getElementById('sos');
+    let sosDiv=document.getElementById('sosDiv');
+    let indicator=document.getElementById('indicator');
+    let indicatorDiv=document.getElementById('indicatorDiv');
+    const topp=document.getElementById('topp');
+    const bottomp=document.getElementById('bottomp');
+    let h=document.getElementById('h');
+    let valrb=0;
+    let valsos=0;
+    let valindicator=0;
+    rbDiv.addEventListener('click',function(){
+        valrb=valrb+1;
+        sos.style.backgroundColor='black';
+        sos.style.border='none';
+        indicator.style.backgroundColor='black';
+        indicator.style.border='none';
+        topp.remove();
+        bottomp.remove();
+        if(valrb>6){
+            h.style.color='#ff0066';
+        }
+        if(valrb%2==0){
+            rb.style.backgroundColor='red';
+        }
+        else{
+            rb.style.backgroundColor='blue';
+        }
+    })
+    sosDiv.addEventListener('click',function(){
+        valsos=valsos+1;
+        rb.style.backgroundColor='black';
+        rb.style.border='none';
+        indicator.style.backgroundColor='black';
+        indicator.style.border='none';
+        topp.remove();
+        bottomp.remove();
+        if(valsos>6){
+            h.style.color='#ff0066';
+        }
+        if(valsos%2==0){
+            sos.style.backgroundColor='white';
+        }
+        else{
+            sos.style.backgroundColor='black';
+        }
+    })
+    indicatorDiv.addEventListener('click',function(){
+        valindicator=valindicator+1;
+        sos.style.backgroundColor='black';
+        sos.style.border='none';
+        rb.style.backgroundColor='black';
+        rb.style.border='none';
+        topp.remove();
+        bottomp.remove();
+        if(valindicator>6){
+            h.style.color='#ff0066';
+        }
+        if(valindicator%2==0){
+            indicator.style.backgroundColor='yellow';
+        }
+        else{
+            indicator.style.backgroundColor='gray';
+        }
+    })
+</script>
+</html>
